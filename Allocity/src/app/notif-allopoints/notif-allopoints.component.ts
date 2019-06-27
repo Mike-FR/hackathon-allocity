@@ -15,7 +15,7 @@ export class NotifAllopointsComponent implements OnInit {
   ngOnInit() { }
 
   openModal() {
-    setTimeout(function(){show(this.basicModal)}, 1000);    
+    setTimeout(function(){this.basicModal}, 1000);    
   }
 }
 
