@@ -3,16 +3,27 @@ import { Routes, RouterModule } from '@angular/router';
 import { OffersComponent } from './offers/offers.component';
 import { ProfilComponent } from './profil/profil.component';
 import { FideliteComponent } from './fidelite/fidelite.component';
+import { RegisterUserComponent } from './authentification/register-user/register-user.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/offres',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
+
+  {
+    path: 'login', component: RegisterUserComponent
+  },
+
   {
     path: 'offres',
     component: OffersComponent, data: { animation: 'offersPage' }
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'profil',
