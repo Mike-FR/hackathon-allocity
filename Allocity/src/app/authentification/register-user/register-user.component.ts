@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register-user',
@@ -20,7 +20,7 @@ export class RegisterUserComponent implements OnInit {
   signupFormModalName = new FormControl('', Validators.required);
   signupFormModalEmail = new FormControl('', Validators.email);
   signupFormModalPassword = new FormControl('', Validators.required);
-  router: any;
+  
 
   constructor(public authService: AuthService) { }
 
@@ -44,8 +44,7 @@ export class RegisterUserComponent implements OnInit {
 
   loginUser() {
     this.authService.login(this.existingUser.email, this.existingUser.password)
-      .then((value) => {
-        this.router.navigate(['/login', 'offres']);
+      .then(value => {
         console.log('login réussi :)', value);
       })
       .catch(err => {
