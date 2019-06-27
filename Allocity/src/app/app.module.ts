@@ -13,6 +13,11 @@ import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterUserComponent } from './authentification/register-user/register-user.component';
 
+import { HomeComponent } from './home/home.component';
+import { OffersComponent } from './offers/offers.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 const config : FirebaseAppConfig = {
@@ -26,15 +31,15 @@ const config : FirebaseAppConfig = {
   };
 
 
-import { OffersComponent } from './offers/offers.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     OffersComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    HomeComponent,
+    OffersComponent
   ],
   imports: [
     BrowserModule,
