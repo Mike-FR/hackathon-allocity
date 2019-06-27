@@ -1,0 +1,74 @@
+.weekDays-selector input {
+  display: none !important;
+}
+
+.weekDays-selector input[type="checkbox"] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 30px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weekDays-selector input[type="checkbox"]:checked + label {
+  background: #2ad705;
+  color: #ffffff;
+}
+
+.formulaire {
+  display: flex;
+}
+
+mdb-card-text {
+  text-justify: auto;
+}
+
+.card-deck {
+  width: 380px;
+}
+
+span {
+  margin-left: 42px;
+  color: #8a8a8a;
+}
+
+.weeklist {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  margin: 2em;
+}
+
+.btn.btn-block {
+  margin: initial;
+}
+
+#create-button {
+
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: white;
+}
+
+form {
+  width: 80%;
+}
+
+:host ::ng-deep img { 
+  width: 100%;
+}
+
+.rounded{
+  width: 10%;
+}
+
+.rounded:hover{
+  width: 35%;
+}

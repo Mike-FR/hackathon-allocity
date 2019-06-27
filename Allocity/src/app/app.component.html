@@ -1,1 +1,3 @@
-<app-fidelite></app-fidelite>
+<div [@routeAnimations]="prepareRoute(outlet)" class="background">
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
