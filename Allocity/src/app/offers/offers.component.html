@@ -1,5 +1,5 @@
 <div class="text-center">
-  <button class="btn-lg" (click)="showFormOffers()" type="button" mdbBtn color="default" rounded="true"
+  <button class="btn-lg my-5" (click)="showFormOffers()" type="button" mdbBtn color="default" rounded="true"
     mdbWavesEffect>Proposer un service !
   </button>
 </div>
@@ -42,7 +42,9 @@
     <mdb-card class="my-4">
       <mdb-card-body class="text-center">
         <mdb-card-title>
+            <img src={{offer.photo}} class="rounded my-3" alt="...">
           <h5>{{offer.serviceName}}</h5>
+          
         </mdb-card-title>
         <mdb-card-text>
           {{offer.description}}
@@ -51,7 +53,8 @@
       </mdb-card-body>
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-center">{{offer.name}} <span
-            class="badge badge-pill badge-warning ml-2">Gold</span></li>
+            class="badge badge-pill badge-warning ml-2">Gold</span>
+            </li>
         <li class="list-group-item text-center">Disponibilités</li>
         <div class="weekDays-selector text-center">
           <input type="checkbox" [checked]="offer.days.lundi" id="weekday-mon" class="weekday" />

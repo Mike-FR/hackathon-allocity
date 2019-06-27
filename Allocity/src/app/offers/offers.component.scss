@@ -60,3 +60,15 @@ form {
 form {
   width: 80%;
 }
+
+:host ::ng-deep img { 
+  width: 100%;
+}
+
+.rounded{
+  width: 10%;
+}
+
+.rounded:hover{
+  width: 40%;
+}
