@@ -33,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    OffersComponent
+    OffersComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
