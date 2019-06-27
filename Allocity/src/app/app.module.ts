@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { OffersComponent } from './offers/offers.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NotifAllopointsComponent } from './notif-allopoints/notif-allopoints.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OffersComponent
+    NotifAllopointsComponent,
   ],
   imports: [
     BrowserModule,
