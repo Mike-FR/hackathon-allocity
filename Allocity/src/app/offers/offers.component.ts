@@ -44,5 +44,8 @@ export class OffersComponent implements OnInit {
     this.dataService.offersArray.push(this.offerForm.value);
   }
 
+  openModal() {
+    setTimeout(function(){this.basicModal}, 1000);    
+  }
 
 }

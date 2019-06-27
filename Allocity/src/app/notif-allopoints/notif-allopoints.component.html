@@ -1,4 +1,4 @@
-<button type="button" mdbBtn color="primary" class="relative waves-light" (click)="openModal()" mdbWavesEffect>Ouvrir la modal</button>
+<button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()" mdbWavesEffect>Ouvrir la modal</button>
 
 <div mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
   aria-hidden="true">
@@ -14,7 +14,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Non</button>
-        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Oui</button>
+        <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="allopoints()" mdbWavesEffect>Oui</button>
       </div>
     </div>
   </div>
