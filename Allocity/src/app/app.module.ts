@@ -19,7 +19,9 @@ import { HomeComponent } from './home/home.component';
 import { OffersComponent } from './offers/offers.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NotifAllopointsComponent } from './notif-allopoints/notif-allopoints.component';
 import { ProfilComponent } from './profil/profil.component';
+
 
 
 
@@ -39,6 +41,7 @@ const config : FirebaseAppConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    NotifAllopointsComponent,
     FideliteComponent,
     ProfilComponent,
     HomeComponent,
