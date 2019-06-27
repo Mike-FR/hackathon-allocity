@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FideliteComponent } from './fidelite/fidelite.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 import { OffersComponent } from './offers/offers.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,7 +18,8 @@ import { ProfilComponent } from './profil/profil.component';
     AppComponent,
     FideliteComponent,
     OffersComponent,
-    ProfilComponent
+    ProfilComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
