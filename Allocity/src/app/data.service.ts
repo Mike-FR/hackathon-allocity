@@ -35,6 +35,11 @@ export class DataService {
     }
   },
   ];
+
+  fideliteArray = [{
+    valeur: 350,
+    name: '',
+  }]
   
   constructor() { }
 }
