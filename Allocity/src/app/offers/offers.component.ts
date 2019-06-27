@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-offers',
@@ -8,38 +9,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 })
 export class OffersComponent implements OnInit {
 
-
-  offersArray = [{
-    photo: 'https://memegenerator.net/img/images/300x300/11615964.jpg',
-    name: 'Michel',
-    serviceName: 'Plomberie',
-    description: 'Bonjour, je propose mes services pour tout vos petits travaux de plomberie. Je me trouve à l\'intersection de la rue Mehdi Hettak et de la rue Omar El Bouslamti. Au plaisir vous rencontrer autour d\'une tuyauterie.',
-    days: {
-      lundi: true,
-      mardi: false,
-      mercredi: false,
-      jeudi: false,
-      vendredi: false,
-      samedi: true,
-      dimanche: true,
-    }
-  }, {
-    photo: 'https://toutelaculture.com/wp-content/uploads/2009/05/clara-morgane-300x300.jpg',
-    name: 'Jacquie',
-    serviceName: 'Jardinage',
-    description: 'Bonjour, paysagiste de profession, je suis disponible chaque mercredi pour vous aider et vous conseiller sur l\'entretien de votre jardin',
-    days: {
-      lundi: false,
-      mardi: false,
-      mercredi: true,
-      jeudi: false,
-      vendredi: false,
-      samedi: false,
-      dimanche: false,
-    }
-  },
-  ];
-
+  
   showFormOffer = false;
 
 
@@ -59,7 +29,7 @@ export class OffersComponent implements OnInit {
   });
 
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
@@ -71,7 +41,7 @@ export class OffersComponent implements OnInit {
 
   createOffer() {
     console.log(this.offerForm.value);
-    this.offersArray.push(this.offerForm.value)
+    this.dataService.offersArray.push(this.offerForm.value);
   }
 
 

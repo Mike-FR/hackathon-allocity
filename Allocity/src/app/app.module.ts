@@ -9,11 +9,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OffersComponent } from './offers/offers.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OffersComponent
+    OffersComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
