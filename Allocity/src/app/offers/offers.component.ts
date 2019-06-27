@@ -12,7 +12,7 @@ export class OffersComponent implements OnInit {
     name: 'Michel',
     serviceName: 'Plomberie',
     description: 'Bonjour, je propose mes services pour tout vos petits travaux de plomberie. Je me trouve à l\'intersection de la rue Mehdi Hettak et de la rue Omar El Bouslamti. Au plaisir vous rencontrer autour d\'une tuyauterie.',
-    days : {
+    days: {
       lundi: true,
       mardi: false,
       mercredi: false,
@@ -21,9 +21,24 @@ export class OffersComponent implements OnInit {
       samedi: true,
       dimanche: true,
     }
-  }]
+  }, {
+    name: 'Jacquie',
+    serviceName: 'Jardinage',
+    description: 'Bonjour, paysagiste de profession, je suis disponible chaque mercredi pour vous aider et vous conseiller sur l\'entretien de votre jardin',
+    days: {
+      lundi: false,
+      mardi: false,
+      mercredi: true,
+      jeudi: false,
+      vendredi: false,
+      samedi: false,
+      dimanche: false,
+    }
+  },
+  ];
 
   showFormOffer = false;
+
 
   offerForm = new FormGroup({
     name: new FormControl(''),
@@ -55,5 +70,6 @@ export class OffersComponent implements OnInit {
     console.log(this.offerForm.value);
     this.offersArray.push(this.offerForm.value)
   }
+
 
 }

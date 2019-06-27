@@ -19,6 +19,10 @@
   color: #ffffff;
 }
 
+.formulaire {
+  display: flex;
+}
+
 mdb-card-text {
   text-justify: auto;
 }
@@ -51,4 +55,8 @@ form {
 
 .form-control:disabled, .form-control[readonly] {
   background-color: white;
+}
+
+form {
+  width: 80%;
 }
