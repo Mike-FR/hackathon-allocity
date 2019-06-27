@@ -13,7 +13,6 @@ import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterUserComponent } from './authentification/register-user/register-user.component';
 
-import { ModalFormComponent } from './modal-form/modal-form.component';
 
 
 const config : FirebaseAppConfig = {
@@ -27,12 +26,14 @@ const config : FirebaseAppConfig = {
   };
 
 
+import { OffersComponent } from './offers/offers.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterUserComponent,
-    ModalFormComponent
-    
+    OffersComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +43,10 @@ const config : FirebaseAppConfig = {
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
