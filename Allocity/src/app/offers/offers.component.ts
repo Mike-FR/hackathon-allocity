@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { DataService } from '../data.service';
 
@@ -8,6 +8,8 @@ import { DataService } from '../data.service';
   styleUrls: ['./offers.component.scss']
 })
 export class OffersComponent implements OnInit {
+
+  //@ViewChild ('basicModal') basicModal: ElementRef
 
   
   showFormOffer = false;
@@ -44,8 +46,12 @@ export class OffersComponent implements OnInit {
     this.dataService.offersArray.push(this.offerForm.value);
   }
 
-  openModal() {
-    setTimeout(function(){this.basicModal}, 1000);    
+  /*openModal() {
+    setTimeout(function(){this.basicModal.open()}, 1000);    
+  }*/
+
+  allopoints() {
+    this.dataService.fideliteArray[0].valeur += 5
   }
 
 }
