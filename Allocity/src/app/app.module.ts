@@ -14,9 +14,12 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterUserComponent } from './authentification/register-user/register-user.component';
 
 import { HomeComponent } from './home/home.component';
+import { FideliteComponent } from './fidelite/fidelite.component';
+
 import { OffersComponent } from './offers/offers.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfilComponent } from './profil/profil.component';
 
 
 
@@ -39,7 +42,10 @@ const config : FirebaseAppConfig = {
     OffersComponent,
     RegisterUserComponent,
     HomeComponent,
-    OffersComponent
+    OffersComponent,
+    FideliteComponent,
+    OffersComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

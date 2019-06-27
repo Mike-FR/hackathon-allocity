@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { OffersComponent } from './offers/offers.component';
 import { RegisterUserComponent } from './authentification/register-user/register-user.component';
 import { HomeComponent } from './home/home.component';
+import { ProfilComponent } from './profil/profil.component';
+import { FideliteComponent } from './fidelite/fidelite.component';
 
 const routes: Routes = [
   {
@@ -17,13 +19,21 @@ const routes: Routes = [
 
   {
     path: 'offres',
-    component: OffersComponent
+    component: OffersComponent,  data: { animation: 'offersPage' }
   },
   {
     path: 'home',
     component: HomeComponent,
+   
   },
-
+  {
+    path: 'profil',
+    component: ProfilComponent, data: { animation: 'profilPage' }
+  },
+  {
+    path: 'fidelite',
+    component: FideliteComponent, data: { animation: 'fidelitePage' }
+  }
 ];
 
 

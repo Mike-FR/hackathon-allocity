@@ -38,11 +38,11 @@
 <!-- liste des offres -->
 
 <div class="row justify-content-around  ">
-  <div *ngFor="let offer of offersArray" class="card-deck mx-1">
+  <div *ngFor="let offer of dataService.offersArray" class="card-deck mx-1">
     <mdb-card class="my-4">
       <mdb-card-body class="text-center">
         <mdb-card-title>
-            <img src={{offer.photo}} class="rounded my-3" alt="...">
+            <img src={{offer.photo}} class="rounded my-3" alt="..." routerLink="/profil">
           <h5>{{offer.serviceName}}</h5>
           
         </mdb-card-title>
