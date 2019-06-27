@@ -10,7 +10,6 @@
   <span>connecté en tant que {{ (authService.user$ | async)?.email }}</span>
   <button type="button" (click)="logoutUser()">se déconnecter</button>
 </div>
-
 <h3>Créer un compte</h3>
 <div>
   <form #f="ngForm" (ngSubmit)="registerUser()">
@@ -114,15 +113,3 @@
     </form>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-

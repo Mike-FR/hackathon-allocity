@@ -13,8 +13,7 @@ export class AuthService {
   }
 
   register(email: string, password: string) {
-    return this.angularfireAuth
-      .auth.createUserWithEmailAndPassword(email, password);
+    return this.angularfireAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
   sendEmailVerification() {
@@ -33,13 +32,11 @@ export class AuthService {
 
 
   login(email: string, password: string) {
-    return this.angularfireAuth
-      .auth.signInWithEmailAndPassword(email, password)
+    return this.angularfireAuth.auth.signInWithEmailAndPassword(email, password)
   }
 
   logout() {
-    this.angularfireAuth
-      .auth.signOut();
+    this.angularfireAuth.auth.signOut();
   }
 
 }
