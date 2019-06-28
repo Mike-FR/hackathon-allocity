@@ -52,7 +52,7 @@ export class DataService {
   ];
 
   fideliteArray = [{
-    valeur: 350,
+    valeur: 100,
     name: '',
   }]
 
