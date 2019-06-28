@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { DataService } from '../data.service';
+import { ModalDirective } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-offers',
@@ -9,6 +10,8 @@ import { DataService } from '../data.service';
 })
 export class OffersComponent implements OnInit {
 
+  @ViewChild('basicModal') basicModal: ModalDirective;
+  
   //@ViewChild ('basicModal') basicModal: ElementRef
 
   showFormOffer = false;
@@ -39,18 +42,20 @@ export class OffersComponent implements OnInit {
     this.showFormOffer = !this.showFormOffer;
   }
 
+  public showModal(){this.basicModal.show()}
 
   createOffer() {
     console.log(this.offerForm.value);
     this.dataService.offersArray.push(this.offerForm.value);
   }
 
-  /*openModal() {
-    setTimeout(function(){this.basicModal.open()}, 1000);    
-  }*/
+  openModalOK() {
+    setTimeout(() => this.showModal(), 5000);    
+  }
 
   allopoints() {
     this.dataService.fideliteArray[0].valeur += 5
   }
+
 
 }
