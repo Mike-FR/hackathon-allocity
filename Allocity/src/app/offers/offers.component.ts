@@ -11,7 +11,6 @@ export class OffersComponent implements OnInit {
 
   //@ViewChild ('basicModal') basicModal: ElementRef
 
-  
   showFormOffer = false;
 
 

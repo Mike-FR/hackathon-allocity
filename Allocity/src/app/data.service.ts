@@ -34,12 +34,27 @@ export class DataService {
       dimanche: false,
     }
   },
+  {
+    photo: 'http://aimertantquepossible.fr/wp-content/uploads/2018/06/Brigitte-Lahaie.jpg',
+    name: 'Brigitte',
+    serviceName: 'Ménage',
+    description: 'Bonjour, à la retraite depuis peu, je vous propose de venir faire le ménage chez vous.',
+    days: {
+      lundi: false,
+      mardi: true,
+      mercredi: true,
+      jeudi: true,
+      vendredi: true,
+      samedi: true,
+      dimanche: true,
+    }
+  },
   ];
 
   fideliteArray = [{
     valeur: 350,
     name: '',
   }]
-  
+
   constructor() { }
 }
