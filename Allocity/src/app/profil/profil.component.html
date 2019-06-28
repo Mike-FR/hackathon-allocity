@@ -17,10 +17,7 @@
           <a class="nav-link" routerLink="/fidelite">Mes AlloPoints</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Connexion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/register">Inscription</a>
+          <a class="nav-link" routerLink="/login">Déconnexion</a>
         </li>
       </ul>
     </div>
@@ -47,7 +44,8 @@
 
   <div class="row mt-5 mb-3 text-center align-items-center d-flex flex-column">
     <h3>AlloPoints</h3>
-    <p class="allopoint">{{dataService.fideliteArray[0].valeur}}<span><i class="fab fa-gg-circle ml-2 fa-1x"></i></span></p>
+    <p class="allopoint">{{dataService.fideliteArray[0].valeur}}<span><i class="fab fa-gg-circle ml-2 fa-1x"></i></span>
+    </p>
   </div>
   <hr>
   <div class="row text-center align-items-center my-5">
@@ -66,12 +64,12 @@
   </div>
   <div class="text-center align-items-center">
     <button type="button" (click)="goBack()" class="btn-primary stylebouton btnposition">
-   Retour
- </button>
- </div>
+      Retour
+    </button>
+  </div>
 </div>
 
-  <!-- Footer -->
+<!-- Footer -->
 <footer class="page-footer font-small cyan darken-3">
   <!-- Footer Elements -->
   <div class="container">
