@@ -9,7 +9,7 @@ import { map } from "rxjs/operators";
 export class AuthService {
 
   
-  public promesa: Promise<any>;
+  public promise: Promise<any>;
   authService: any;
 
   constructor(
@@ -28,9 +28,9 @@ export class AuthService {
     /*this.getAuth().subscribe(auth => {
       this.emailUsuario = auth.email;
     });*/
-    this.promesa = this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.promise = this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     //this.afAuth.auth.sendPasswordResetEmail(this.emailUsuario);
-    return this.promesa;
+    return this.promise;
   }
 
   registerUser(email: string, pass: string) {
