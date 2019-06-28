@@ -3,17 +3,44 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class AuthService {
-  user$: Observable<firebase.User>;
 
-  constructor(private angularfireAuth: AngularFireAuth) {
-    this.user$ = angularfireAuth.authState;
+  
+  public promesa: Promise<any>;
+  authService: any;
+
+  constructor(
+    public afAuth: AngularFireAuth
+  ) { }
+
+  loginTwitter () {
+    return this.afAuth.auth.signInWithPopup( new firebase.auth.TwitterAuthProvider());
   }
 
-  register(email: string, password: string) {
-    return this.angularfireAuth.auth.createUserWithEmailAndPassword(email, password);
+  loginFacebook() {
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
+
+  loginGoogle() {
+    /*this.getAuth().subscribe(auth => {
+      this.emailUsuario = auth.email;
+    });*/
+    this.promesa = this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    //this.afAuth.auth.sendPasswordResetEmail(this.emailUsuario);
+    return this.promesa;
+  }
+
+  registerUser(email: string, pass: string) {
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
+        .then(userData => resolve(userData),
+          err => reject(err));
+
+          
+    });
   }
 
   sendEmailVerification() {
@@ -27,16 +54,25 @@ export class AuthService {
         console.error('error sending email', error);
       });
     }
-
+  
   }
 
+  loginEmail(email: string, pass: string) {
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth.signInWithEmailAndPassword(email, pass)
+        .then(userData => resolve(userData),
+          err => reject(err));
+    });
+  }
 
-  login(email: string, password: string) {
-    return this.angularfireAuth.auth.signInWithEmailAndPassword(email, password)
+  getAuth() {
+    return this.afAuth.authState.pipe(map(auth => auth));
+    //return this.afAuth.authState.map(auth => auth);
+    ;
   }
 
   logout() {
-    this.angularfireAuth.auth.signOut();
+    return this.afAuth.auth.signOut();
   }
 
 }

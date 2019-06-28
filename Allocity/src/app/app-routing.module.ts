@@ -5,6 +5,11 @@ import { RegisterUserComponent } from './authentification/register-user/register
 import { HomeComponent } from './home/home.component';
 import { ProfilComponent } from './profil/profil.component';
 import { FideliteComponent } from './fidelite/fidelite.component';
+import { LoginComponent } from './authentification/login/login.component';
+
+
+
+import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   {
@@ -14,17 +19,21 @@ const routes: Routes = [
   },
 
   {
-    path: 'login', component: RegisterUserComponent
+    path: 'login', component: LoginComponent
+  },
+
+  {
+    path: 'register', component: RegisterUserComponent
   },
 
   {
     path: 'offres',
-    component: OffersComponent,  data: { animation: 'offersPage' }
+    component: OffersComponent, data: { animation: 'offersPage' }
   },
   {
     path: 'home',
     component: HomeComponent,
-   
+
   },
   {
     path: 'profil',

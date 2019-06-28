@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 
@@ -20,8 +21,7 @@ import { OffersComponent } from './offers/offers.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfilComponent } from './profil/profil.component';
-
-
+import { LoginComponent } from './authentification/login/login.component';
 
 const config : FirebaseAppConfig = {
     apiKey: "AIzaSyDd9TWt69MCGnM3i7dF4QtPbey3zXMnPr0",
@@ -33,9 +33,6 @@ const config : FirebaseAppConfig = {
     appId: "1:468777907940:web:ebc13135b2a9d07c"
   };
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,8 +42,10 @@ const config : FirebaseAppConfig = {
     OffersComponent,
     FideliteComponent,
     OffersComponent,
-    ProfilComponent
+    ProfilComponent,
+    LoginComponent
   ],
+  
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -58,9 +57,14 @@ const config : FirebaseAppConfig = {
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    FlashMessagesModule
 
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    FlashMessagesService 
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
