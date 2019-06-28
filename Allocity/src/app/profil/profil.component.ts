@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-profil',
@@ -8,9 +9,13 @@ import { DataService } from '../data.service';
 })
 export class ProfilComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private location: Location) { }
 
   ngOnInit() {
   }
+
+  goBack() {
+    this.location.back(); // <-- go back to previous location on cancel
+}
 
 }
