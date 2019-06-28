@@ -17,11 +17,13 @@ const routes: Routes = [
   },
 
   {
-    path: 'login', component: LoginComponent
+    path: 'login',
+    component: LoginComponent
   },
 
   {
-    path: 'register', component: RegisterUserComponent
+    path: 'register',
+    component: RegisterUserComponent
   },
 
   {
@@ -30,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent,
+    component: HomeComponent, data: { animation: 'homePage' }
 
   },
   {

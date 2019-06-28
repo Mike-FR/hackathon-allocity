@@ -12,6 +12,8 @@ export class OffersComponent implements OnInit {
 
   @ViewChild('basicModal') basicModal: ModalDirective;
   
+  //@ViewChild ('basicModal') basicModal: ElementRef
+
   showFormOffer = false;
 
 
