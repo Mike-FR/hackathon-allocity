@@ -1,15 +1,62 @@
+.logosize {
+  width: 100%;
+}
+
+.navbar {
+  box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.16);
+  background-color: white;
+  padding: 0rem 0rem;
+}
+
+.navbar.navbar-light .navbar-nav .nav-item .nav-link {
+  color: rgb(100, 100, 100) !important;
+  transition: 0.35s;
+  justify-content: right !important;
+}
+
+.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #33bdf0 !important;
+}
+
+.bg-light {
+  background-color: #ffffff !important;
+}
+
 img {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .allopoint {
-    font-size: 2em;
+  font-size: 2em;
 }
 
-h1, h3 {
-    font-weight: bolder;
+h1,
+h3 {
+  font-weight: bolder;
 }
 
 .stat {
-    font-size: 1.5em;
+  font-size: 1.5em;
+}
+
+.navbar {
+  box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.16);
+  background-color: white;
+  padding: 0rem 0rem;
+}
+
+.navbar.navbar-light .navbar-nav .nav-item .nav-link {
+  color: rgb(100, 100, 100) !important;
+  transition: 0.35s;
+  justify-content: right !important;
+}
+
+.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #33bdf0 !important;
+}
+
+.bg-light {
+  background-color: #ffffff !important;
 }
