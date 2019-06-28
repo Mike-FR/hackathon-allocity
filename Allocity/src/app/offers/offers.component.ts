@@ -47,14 +47,15 @@ export class OffersComponent implements OnInit {
   createOffer() {
     console.log(this.offerForm.value);
     this.dataService.offersArray.push(this.offerForm.value);
+    this.showFormOffer = !this.showFormOffer;
   }
 
   openModalOK() {
-    setTimeout(() => this.showModal(), 5000);    
+    setTimeout(() => this.showModal(), 5000);
   }
 
   allopoints() {
-    this.dataService.fideliteArray[0].valeur += 5
+    this.dataService.fideliteArray[0].valeur += 5;
   }
 
 
