@@ -22,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfilComponent } from './profil/profil.component';
 import { LoginComponent } from './authentification/login/login.component';
+import { database } from 'firebase';
 
 const config : FirebaseAppConfig = {
     apiKey: "AIzaSyDd9TWt69MCGnM3i7dF4QtPbey3zXMnPr0",
@@ -36,14 +37,13 @@ const config : FirebaseAppConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    OffersComponent,
+    LoginComponent,
     RegisterUserComponent,
+    OffersComponent,
     HomeComponent,
-    OffersComponent,
     FideliteComponent,
-    OffersComponent,
     ProfilComponent,
-    LoginComponent
+    
   ],
   
   imports: [
@@ -62,7 +62,8 @@ const config : FirebaseAppConfig = {
   ],
   providers: [
     AuthService,
-    FlashMessagesService 
+    FlashMessagesService,
+    
   ],
 
   bootstrap: [AppComponent]

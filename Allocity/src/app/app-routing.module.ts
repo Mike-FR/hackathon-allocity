@@ -28,7 +28,7 @@ const routes: Routes = [
 
   {
     path: 'offres',
-    component: OffersComponent, data: { animation: 'offersPage' }
+    component: OffersComponent
   },
   {
     path: 'home',
