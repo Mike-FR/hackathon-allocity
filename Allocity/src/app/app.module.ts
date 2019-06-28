@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotifAllopointsComponent } from './notif-allopoints/notif-allopoints.component';
 import { ProfilComponent } from './profil/profil.component';
 import { LoginComponent } from './authentification/login/login.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 const config : FirebaseAppConfig = {
@@ -58,7 +59,8 @@ const config : FirebaseAppConfig = {
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [

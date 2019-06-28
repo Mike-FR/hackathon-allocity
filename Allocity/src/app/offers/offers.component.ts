@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { DataService } from '../data.service';
 import { ModalDirective } from 'angular-bootstrap-md';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-offers',
@@ -33,9 +34,13 @@ export class OffersComponent implements OnInit {
   });
 
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private toastr: ToastrService) { }
 
   ngOnInit() {
+  }
+
+  showSuccess() {
+    this.toastr.success('Message envoyé !');
   }
 
   showFormOffers() {
@@ -57,6 +62,8 @@ export class OffersComponent implements OnInit {
   allopoints() {
     this.dataService.fideliteArray[0].valeur += 5;
   }
+
+  
 
 
 }
