@@ -1,50 +1,83 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/home"><img class="logosize" src="../../assets/Logo.png" alt="" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav ">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/offres">Toutes les offres <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#ccm">Comment ça marche ?</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/fidelite">Mes AlloPoints</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Déconnexion</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<hr>
+
+
 <div class="container">
 
   <div class='fidelite text-center'>
-    <h1>Fidelité</h1>
+    <h1>Vos gains</h1>
   </div>
-  <div class="row justify-content-end">
-    <p class="allopoint shadow-sm bg-white rounded border ">Allopoints : {{dataService.fideliteArray[0].valeur}} <span><i class="fab fa-gg-circle ml-1 fa-1x"></i></span></p>
+  <div class="row justify-content-end mx-auto">
+    <p class="allopoint shadow-sm bg-white rounded border p-2 animated bounceInDown wow" data-wow-delay="0.5s">Mes Allopoints : {{dataService.fideliteArray[0].valeur}}
+      <span><i class="fab fa-gg-circle ml-1 fa-1x"></i></span></p>
   </div>
   <div class="row mb-5 mt-3">
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>10 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>10 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
           <img class="card-img-top" src="./assets/pictures/tshirt.jpg" alt="Card image cap">
-          
+
           <a href="#!">
-            
+
             <div class="mask rgba-white-slight"></div>
           </a>
-          
+
         </div>
 
         <!-- Card content -->
         <div class="card-body card-body-cascade text-center pb-0">
-          
-          
+
+
 
 
           <!-- Title -->
           <h4 class="card-title"><strong>T-shirt Effesceau</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 10 Allopoints pour gagner ce magnifique t-shirt Effesceau, donné en main propre par M. Petit.</p>
+          <p class="card-text">Obtenez 10 Allopoints pour gagner ce magnifique t-shirt Effesceau, donné en main propre
+            par M. Petit.</p>
 
         </div>
-
+        <button type="button" (click)="delete10points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
 
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>20 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>20 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -60,17 +93,21 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Panier garni</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 20 Allopoints pour gagner ce magnifique panier garni du marché, donné en main propre par M. Petit. </p>
+          <p class="card-text">Obtenez 20 Allopoints pour gagner ce magnifique panier garni du marché, donné en main
+            propre par M. Petit. </p>
 
         </div>
+        <button type="button" (click)="delete20points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
 
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>30 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>30 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -86,9 +123,13 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Lot de bouteilles de vin</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 30 Allopoints pour gagner ce lot de bouteilles de vin de chez "Vine & Beer", donné en main propre par M. Petit. </p>
+          <p class="card-text">Obtenez 30 Allopoints pour gagner ce lot de bouteilles de vin de chez "Vine & Beer",
+            donné en main propre par M. Petit. </p>
 
         </div>
+        <button type="button" (click)="delete30points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
   </div>
@@ -96,9 +137,9 @@
   <div class="row mb-5">
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>40 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>40 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -114,18 +155,22 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Abonnement de transport</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 40 Allopoints pour gagner cet abonnement mensuel TCE donné en main propre par M. Petit.</p>
+          <p class="card-text">Obtenez 40 Allopoints pour gagner cet abonnement mensuel TCE donné en main propre par M.
+            Petit.</p>
 
         </div>
+        <button type="button" (click)="delete40points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
 
 
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>50 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>50 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -141,18 +186,22 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Places de cinéma/musée/théatre</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 50 Allopoints pour gagner ces places pour deux personnes, donné en main propre par M. Petit. </p>
+          <p class="card-text">Obtenez 50 Allopoints pour gagner ces places pour deux personnes, donné en main propre
+            par M. Petit. </p>
 
         </div>
+        <button type="button" (click)="delete50points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
 
 
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>60 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>60 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -168,9 +217,13 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Jeu Vidéo</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 60 Allopoints pour gagner ce superbe jeu vidéo de chez "Gamesceau", donné en main propre par M. Petit.</p>
+          <p class="card-text">Obtenez 60 Allopoints pour gagner ce superbe jeu vidéo de chez "Gamesceau", donné en main
+            propre par M. Petit.</p>
 
         </div>
+        <button type="button" (click)="delete60points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
   </div>
@@ -179,9 +232,9 @@
     <div class="col-4">
 
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>70 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>70 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -197,17 +250,21 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Repas restaurant</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 70 Allopoints pour gagner un repas chez "Le Crocqin" pour deux personnes, donné en main propre par M. Petit.</p>
+          <p class="card-text">Obtenez 70 Allopoints pour gagner un repas chez "Le Crocqin" pour deux personnes, donné
+            en main propre par M. Petit.</p>
 
         </div>
+        <button type="button" (click)="delete70points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
 
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>80 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>80 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -223,17 +280,21 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Appareil électroménagé</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 80 Allopoints pour gagner cet appareil électroménagé de chez "Electro-M" donné en main propre par M. Petit. </p>
+          <p class="card-text">Obtenez 80 Allopoints pour gagner cet appareil électroménagé de chez "Electro-M" donné en
+            main propre par M. Petit. </p>
 
         </div>
+        <button type="button" (click)="delete80points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
 
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>90 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>90 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -249,9 +310,13 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Soins esthétiques</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 90 Allopoints pour gagner ce soin de chez "SPA Prestige" pour deux personnes, donné en main propre par M. Petit.</p>
+          <p class="card-text">Obtenez 90 Allopoints pour gagner ce soin de chez "SPA Prestige" pour deux personnes,
+            donné en main propre par M. Petit.</p>
 
         </div>
+        <button type="button" (click)="delete90points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
   </div>
@@ -259,9 +324,9 @@
   <div class="row mb-5">
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>100 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>100 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -277,17 +342,21 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Places parc d'attractions/zoo/expositions</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 100 Allopoints pour gagner ces places pour deux personnes, donné en main propre par M. Petit.</p>
+          <p class="card-text">Obtenez 100 Allopoints pour gagner ces places pour deux personnes, donné en main propre
+            par M. Petit.</p>
 
         </div>
+        <button type="button" (click)="delete100points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
 
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>110 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>110 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -303,17 +372,21 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Week end</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 110 Allopoints pour gagner ce week end pour deux personnes, donné en main propre par M. Petit.</p>
+          <p class="card-text">Obtenez 110 Allopoints pour gagner ce week end pour deux personnes, donné en main propre
+            par M. Petit.</p>
 
         </div>
+        <button type="button" (click)="delete110points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
     </div>
 
     <div class="col-4">
       <div class="card card-cascade wider">
-          <div class="alloPoints">
-              <h4>120 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
-              </div>
+        <div class="alloPoints">
+          <h4>120 AlloPoints</h4><i class="fab fa-gg-circle fa-2x mr-2"></i>
+        </div>
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
@@ -329,13 +402,65 @@
           <!-- Title -->
           <h4 class="card-title"><strong>Voyage</strong></h4>
           <!-- Text -->
-          <p class="card-text">Obtenez 120 Allopoints pour gagner ce voyage pour deux personnes, donné en main propre par M. Petit.</p>
+          <p class="card-text">Obtenez 120 Allopoints pour gagner ce voyage pour deux personnes, donné en main propre
+            par M. Petit.</p>
 
         </div>
+        <button type="button" (click)="delete120points()" class="btn-primary stylebouton btnposition">
+          Dépenser
+        </button>
       </div>
 
     </div>
   </div>
 </div>
 
+<!-- Footer -->
+<footer class="page-footer font-small cyan darken-3">
+  <!-- Footer Elements -->
+  <div class="container">
+    <!-- Grid row-->
 
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-12 py-5">
+        <div class="mb-5 flex-center">
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x">
+            </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x">
+            </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x">
+            </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+          </a>
+        </div>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row-->
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">
+    © 2019 Copyright:
+    <a href="#"> Allocity.fr</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

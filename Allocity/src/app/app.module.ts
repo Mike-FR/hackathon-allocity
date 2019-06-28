@@ -20,9 +20,12 @@ import { FideliteComponent } from './fidelite/fidelite.component';
 import { OffersComponent } from './offers/offers.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NotifAllopointsComponent } from './notif-allopoints/notif-allopoints.component';
 import { ProfilComponent } from './profil/profil.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { database } from 'firebase';
+import { ToastrModule } from 'ngx-toastr';
+
 
 const config : FirebaseAppConfig = {
     apiKey: "AIzaSyDd9TWt69MCGnM3i7dF4QtPbey3zXMnPr0",
@@ -44,6 +47,11 @@ const config : FirebaseAppConfig = {
     FideliteComponent,
     ProfilComponent,
     
+    NotifAllopointsComponent,
+    FideliteComponent,
+
+    
+  
   ],
   
   imports: [
@@ -57,7 +65,8 @@ const config : FirebaseAppConfig = {
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [
