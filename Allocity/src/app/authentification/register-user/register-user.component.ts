@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
+
 
 
 @Component({
@@ -10,50 +13,31 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegisterUserComponent implements OnInit {
 
-  newUser = { email: '', password: '' };
-  existingUser = { email: '', password: '' };
+  public email: string;
+  public password: string;
 
-
-  loginFormModalEmail = new FormControl('', Validators.email);
-  loginFormModalPassword = new FormControl('', Validators.required);
-
-  signupFormModalName = new FormControl('', Validators.required);
-  signupFormModalEmail = new FormControl('', Validators.email);
-  signupFormModalPassword = new FormControl('', Validators.required);
-  
-
-  constructor(public authService: AuthService) { }
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+    public flashMessage: FlashMessagesService
+  ) { }
 
   ngOnInit() {
   }
 
-  registerUser() {
-    this.authService.register(this.newUser.email, this.newUser.password)
-      .then(createdUser => {
-        console.log('createdUser', createdUser);
+  onSubmitAddUser() {
+    this.authService.registerUser(this.email, this.password)
+      .then((res) => {
+        this.flashMessage.show('Utilisateur créé.',
+          { cssClass: 'alert-success container', timeout: 4000 });
 
-        // reset form    
-        this.newUser.email = '';
-        this.newUser.password = '';
-
-        // send email verification
         this.authService.sendEmailVerification();
-      })
-      .catch(error => console.error(error.message));
-  }
+        this.router.navigate(['/offres']);
 
-  loginUser() {
-    this.authService.login(this.existingUser.email, this.existingUser.password)
-      .then(value => {
-        console.log('login réussi :)', value);
-      })
-      .catch(err => {
-        console.log('erreur :(', err.message);
+
+      }).catch((err) => {
+        this.flashMessage.show(err.message,
+          { cssClass: 'alert-danger col-md-6 mx-auto', timeout: 4000 });
       });
   }
-
-  logoutUser() {
-    this.authService.logout();
-  }
-
 }

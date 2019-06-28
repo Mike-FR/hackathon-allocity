@@ -5,6 +5,9 @@ import { ProfilComponent } from './profil/profil.component';
 import { FideliteComponent } from './fidelite/fidelite.component';
 import { RegisterUserComponent } from './authentification/register-user/register-user.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './authentification/login/login.component';
+
+import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +17,11 @@ const routes: Routes = [
   },
 
   {
-    path: 'login', component: RegisterUserComponent
+    path: 'login', component: LoginComponent
+  },
+
+  {
+    path: 'register', component: RegisterUserComponent
   },
 
   {
@@ -24,6 +31,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+
   },
   {
     path: 'profil',

@@ -2,8 +2,8 @@
   <div class="col-md-6 mx-auto mt-5 shadow">
     <div class="card">
       <div class="card-body">
-        <h1 class="text-center">Inscription</h1>
-        <form (submit)="onSubmitAddUser()">
+        <h1 class="text-center">Se connecter</h1>
+        <form (submit)="onSubmitLogin()">
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" [(ngModel)]="email" class="form-control">
@@ -12,12 +12,24 @@
             <label for="password">Mot de passe</label>
             <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control">
           </div>
-          <input type="submit" value="Inscription" class="btn btn-primary btn-block btn-lg">
+          <input type="submit" value="Connexion" class="btn btn-primary btn-block btn-lg">
         </form>
       </div>
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-6 mx-auto mt-2 shadow">
+    <div class="card">
+      <div class="card-body d-flex justify-content-around">
+        <button class="btn btn-lg btn-facebook" (click)="onClickFacebookLogin()"><i class="fab fa-facebook-f"></i> Facebook</button>
+        <button class="btn btn-lg btn-google" (click)="onClickGoogleLogin()" ><i class="fab fa-google"></i> Google</button>
+        <button class="btn btn-lg btn-twitter" (click)="onClickTwitterLogin()" ><i class="fab fa-twitter"></i> Twitter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -52,7 +64,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/register">Inscription</a>
 
-        
+
         </li>
       </ul>
     </div>
