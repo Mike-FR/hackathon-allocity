@@ -67,7 +67,7 @@
 
 <div class="row justify-content-around mb-5">
   <div *ngFor="let offer of dataService.offersArray" class="card-deck mx-1">
-    <mdb-card class="my-4">
+    <mdb-card class="my-4 animated wow flipInY" data-wow-delay="0.5s">
       <mdb-card-body class="text-center">
         <mdb-card-title>
           <img src={{offer.photo}} class="rounded my-3" alt="..." routerLink="/profil">
