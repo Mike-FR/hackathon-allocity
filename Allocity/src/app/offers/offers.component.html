@@ -1,0 +1,184 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/home"><img class="logosize" src="../../assets/Logo.png" alt="" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav ">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/offres">Toutes les offres <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#ccm">Comment ça marche ?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/fidelite">Mes AlloPoints</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Déconnexion</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<hr>
+
+<div class="text-center">
+  <button class="btn-lg my-5" (click)="showFormOffers()" type="button" mdbBtn color="default" rounded="true"
+    mdbWavesEffect>Proposer un service !
+  </button>
+</div>
+
+<!-- formulaire de création d'une offre -->
+<div class="formulaire justify-content-center">
+  <form *ngIf="showFormOffer === true" [formGroup]="offerForm" (ngSubmit)="createOffer()"
+    class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">Créer votre offre</p>
+
+    <input type="text" id="name" class="form-control mb-4" placeholder="Name" formControlName="name">
+    <input type="text" id="service" class="form-control mb-4" placeholder="Service à offrir"
+      formControlName="serviceName">
+    <input type="text" class="form-control mb-4" placeholder="Cochez vos disponibilités" disabled>
+    <div mdbInput formGroupName="days" class="my-4">
+      <mdb-checkbox [inline]="true" [default]="true" formControlName="lundi">Lundi</mdb-checkbox>
+      <mdb-checkbox [inline]="true" [default]="true" formControlName="mardi">Mardi</mdb-checkbox>
+      <mdb-checkbox [inline]="true" [default]="true" formControlName="mercredi">Mercredi</mdb-checkbox>
+      <mdb-checkbox [inline]="true" [default]="true" formControlName="jeudi">Jeudi</mdb-checkbox>
+      <mdb-checkbox [inline]="true" [default]="true" formControlName="vendredi">Vendredi</mdb-checkbox>
+      <mdb-checkbox [inline]="true" [default]="true" formControlName="samedi">Samedi</mdb-checkbox>
+      <mdb-checkbox [inline]="true" [default]="true" formControlName="dimanche">Dimanche</mdb-checkbox>
+    </div>
+    <div class="form-group">
+      <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"
+        placeholder="Description de votre offre" formControlName="description"></textarea>
+    </div>
+
+    <div id="create-button">
+      <button class="btn btn-info btn-block" type="submit">Créer</button>
+    </div>
+  </form>
+</div>
+
+<!-- liste des offres -->
+
+<div class="row justify-content-around mb-5">
+  <div *ngFor="let offer of dataService.offersArray" class="card-deck mx-1">
+    <mdb-card class="my-4 animated wow flipInY" data-wow-delay="0.5s">
+      <mdb-card-body class="text-center">
+        <mdb-card-title>
+          <img src={{offer.photo}} class="rounded my-3" alt="..." routerLink="/profil">
+          <h5>{{offer.serviceName}}</h5>
+
+        </mdb-card-title>
+        <mdb-card-text>
+          {{offer.description}}
+        </mdb-card-text>
+        <mdb-card-text><small class="text-muted">Last updated 3 mins ago</small></mdb-card-text>
+      </mdb-card-body>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-center">{{offer.name}} <span
+            class="badge badge-pill badge-warning ml-2">Gold</span>
+        </li>
+        <li class="list-group-item text-center">Disponibilités</li>
+        <div class="weekDays-selector text-center">
+          <input type="checkbox" [checked]="offer.days.lundi" id="weekday-mon" class="weekday" />
+          <label for="weekday-mon">L</label>
+          <input type="checkbox" [checked]="offer.days.mardi" id="weekday-tue" class="weekday" />
+          <label for="weekday-tue">M</label>
+          <input type="checkbox" [checked]="offer.days.mercredi" id="weekday-wed" class="weekday" />
+          <label for="weekday-wed">M</label>
+          <input type="checkbox" [checked]="offer.days.jeudi" id="weekday-thu" class="weekday" />
+          <label for="weekday-thu">J</label>
+          <input type="checkbox" [checked]="offer.days.vendredi" id="weekday-fri" class="weekday" />
+          <label for="weekday-fri">V</label>
+          <input type="checkbox" [checked]="offer.days.samedi" id="weekday-sat" class="weekday" />
+          <label for="weekday-sat">S</label>
+          <input type="checkbox" [checked]="offer.days.dimanche" id="weekday-sun" class="weekday" />
+          <label for="weekday-sun">D</label>
+        </div>
+      </ul>
+      <div class="text-center my-2">
+        <button class="waves-light" mdbBtn color="info" mdbWavesEffect (click)="showSuccess()" (click)="openModalOK()">Contacter</button>
+      </div>
+    </mdb-card>
+  </div>
+</div>
+
+<!-- confirmation du contact -->
+
+<div mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog"
+  aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-side modal-top-right " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Service</h4>
+      </div>
+      <div class="modal-body"> Avez-vous bénéficiez du service ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+          (click)="basicModal.hide()" mdbWavesEffect>Non</button>
+        <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="allopoints()"
+          (click)="basicModal.hide()" mdbWavesEffect>Oui</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="page-footer font-small cyan darken-3">
+  <!-- Footer Elements -->
+  <div class="container">
+    <!-- Grid row-->
+
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-12 py-5">
+        <div class="mb-5 flex-center">
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x">
+            </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x">
+            </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x">
+            </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+          </a>
+        </div>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row-->
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">
+    © 2019 Copyright:
+    <a href="#"> Allocity.fr</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
